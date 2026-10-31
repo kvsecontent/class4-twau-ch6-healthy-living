@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Happy and Healthy Living – Sports Games | Class 4 TWAU Ch 6</title>
+<title>Happy and Healthy Living – Games | Class 4 TWAU Ch 6</title>
 <style>
 :root{
   --maroon:#7b1e2b; --maroon-d:#5a1520; --saffron:#f28c28; --saffron-l:#ffe2c2;
@@ -135,12 +135,75 @@ p.sub{text-align:center;color:var(--muted);font-size:clamp(14px,1.5vw,19px);marg
 .acard:hover{border-color:var(--saffron)}
 
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:150}
+h3.sec{font-size:clamp(20px,2.2vw,28px);color:var(--maroon-d);margin:22px 0 12px;padding-left:12px;border-left:7px solid var(--saffron)}
+.qbar{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:12px 18px;margin-bottom:16px;font-size:clamp(17px,1.9vw,24px);font-weight:700}
+.clocks{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:18px;align-items:start}
+@media(max-width:1100px){.clocks{grid-template-columns:1fr 1fr}.clocks .calc{grid-column:1/-1}}
+.clockcard{border-radius:22px;padding:14px;text-align:center;box-shadow:var(--shadow)}
+.clockcard.night{background:#22305a;color:#fff}.clockcard.day{background:#fff3c4}
+.clockcard h3{font-size:clamp(19px,2vw,26px);margin-bottom:6px}
+.clockcard h3 small{font-weight:600;opacity:.8;font-size:.7em}
+.clock{width:100%;max-width:330px;touch-action:none}
+.clock .hh{cursor:grab}
+.dig{font-size:clamp(26px,3vw,40px);font-weight:900;margin-top:4px}
+.calc{min-height:0}
+.calc .row{font-size:clamp(17px,1.8vw,22px);margin:8px 0;line-height:1.4}
+.calc .tot{font-size:clamp(26px,3vw,40px);font-weight:900;color:var(--maroon);margin:10px 0}
+.calc .ok{background:var(--green-l);color:var(--green);border-radius:12px;padding:10px 12px;font-weight:800}
+.calc .warn{background:var(--red-l);color:var(--red);border-radius:12px;padding:10px 12px;font-weight:800}
+.hops{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.hop{width:34px;height:34px;border-radius:50%;background:var(--saffron-l);border:3px solid var(--saffron);display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--maroon-d);animation:pop .3s both}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.qopts{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.situ{max-width:900px;margin:0 auto 16px;background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:22px;text-align:center;font-size:clamp(22px,2.6vw,34px);font-weight:800;color:var(--ink);min-height:110px;display:flex;align-items:center;justify-content:center;gap:16px}
+.situ .e{font-size:1.6em}
+.faces{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.face{background:#fff;border:4px solid var(--line);border-radius:26px;padding:14px 18px 12px;text-align:center;width:230px;box-shadow:var(--shadow)}
+.face svg{width:170px;height:170px}
+.face b{display:block;font-size:26px;color:var(--maroon)}
+.face:hover{border-color:var(--saffron)}
+.face.ok{border-color:var(--green);background:var(--green-l)} .face.no{border-color:var(--red);background:var(--red-l)}
+.face.big{width:420px}.face.big svg{width:340px;height:340px}
+.chartwrap{overflow-x:auto;background:#fff;border-radius:18px;box-shadow:var(--shadow)}
+table.sleep{width:100%;border-collapse:collapse;font-size:clamp(15px,1.5vw,19px)}
+table.sleep th{background:var(--maroon);color:#fff;padding:10px 8px;text-align:center}
+table.sleep td{border-bottom:2px solid var(--line);padding:6px 8px;text-align:center}
+table.sleep input,table.sleep select{font:inherit;padding:6px 8px;border:2px solid var(--line);border-radius:10px;width:100%;min-width:90px;background:#fff}
+table.sleep .dur{font-weight:900;color:var(--maroon);white-space:nowrap}
+.fbtn{font-size:26px;background:var(--cream);border:3px solid var(--line);border-radius:12px;padding:2px 8px;margin:0 2px}
+.fbtn.on{border-color:var(--maroon);background:var(--saffron-l)}
+.fbtn small{display:block;font-size:11px;font-weight:700}
+.del{background:none;font-size:20px;color:var(--red)}
+.summary{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.slots{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+@media(max-width:1100px){.slots{grid-template-columns:repeat(4,1fr)}}
+.slot{border:4px dashed var(--line);border-radius:18px;min-height:190px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:6px;transition:all .15s}
+.slot .n{font-weight:900;color:var(--maroon);font-size:20px}
+.slot.hot{background:var(--saffron-l);border-style:solid}
+.slot.right{border-color:var(--green);border-style:solid;background:var(--green-l)}
+.slot.wrongs{border-color:var(--red);border-style:solid;background:var(--red-l)}
+.rtile{width:130px;background:#fff;border:3px solid var(--line);border-radius:16px;padding:8px 4px;text-align:center;font-weight:800;font-size:16px;box-shadow:var(--shadow);touch-action:none;cursor:grab}
+.rtile .e{font-size:52px;display:block;line-height:1.2}
+.rtile .t{font-size:13px;color:var(--muted);font-weight:700}
+.rtile.drag{position:fixed;z-index:100;transform:scale(1.08) rotate(-3deg);pointer-events:none}
+.pzwrap{position:relative;height:560px;background:#fff;border-radius:22px;box-shadow:var(--shadow);overflow:hidden;touch-action:none}
+.pztarget{position:absolute;width:420px;height:420px;left:40px;top:70px}
+.piece{position:absolute;width:420px;height:420px;pointer-events:none;transition:filter .2s}
+.piece path,.piece text,.piece g{pointer-events:visiblePainted}
+.piece.dragging{filter:drop-shadow(0 10px 14px rgba(0,0,0,.3));z-index:5}
+.pzmsg{max-width:900px;margin:14px auto 0;font-size:clamp(20px,2.2vw,28px);font-weight:800;color:var(--maroon);text-align:center}
+.hcard{max-width:760px;margin:0 auto;background:#fff;border-radius:26px;box-shadow:var(--shadow);padding:22px;text-align:center;min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:5px solid var(--line)}
+.hcard .e{font-size:clamp(90px,12vw,150px);line-height:1.1}
+.hcard .t{font-size:clamp(28px,3.4vw,46px);font-weight:900;color:var(--maroon)}
+.hcard.good{border-color:var(--green)} .hcard.bad{border-color:var(--red)}
+.btn.big{font-size:clamp(20px,2.2vw,28px);padding:16px 30px}
+
 </style>
 </head>
 <body>
 <div class="topbar">
   <span class="badge">Class 4 · TWAU</span>
-  <h1>Happy and Healthy Living – Sports Games<small>Chapter 6 · Our Wondrous World · Enjoy Sports</small></h1>
+  <h1>Happy and Healthy Living – Games<small>Chapter 6 · Our Wondrous World · Enjoy Sports &amp; Sleep Well too!</small></h1>
   <span class="sp"></span>
   <button class="tbtn" id="homeBtn" onclick="show('home')">⌂ Home</button>
   <button class="tbtn" onclick="toggleFS()">⛶ Full screen</button>
@@ -153,6 +216,7 @@ p.sub{text-align:center;color:var(--muted);font-size:clamp(14px,1.5vw,19px);marg
     <div class="factband">
       <span class="fact">🏃 Play in open fields</span><span class="fact">🧘 Yoga improves <b>posture</b></span><span class="fact">😴 Rest after play</span>
     </div>
+    <h3 class="sec">🏃 Enjoy Sports</h3>
     <div class="cards">
       <div class="gcard"><div class="art" style="background:var(--saffron-l)" id="artWheel"></div>
         <div class="body"><h3>Games Wheel</h3><p>Spin the wheel! Name the game and tell which body part moves the most while playing it. Two teams, one point for each correct answer.</p>
@@ -164,6 +228,95 @@ p.sub{text-align:center;color:var(--muted);font-size:clamp(14px,1.5vw,19px);marg
         <div class="body"><h3>Simon Says</h3><p>Do the action only when you hear “Simon says”! A fun movement game for the whole class.</p>
         <button class="btn go" onclick="show('simonS')">Play ▶</button></div></div>
     </div>
+    <h3 class="sec">😴 Sleep Well too!</h3>
+    <div class="cards">
+      <div class="gcard"><div class="art" style="background:var(--blue-l)" id="artClock"></div>
+        <div class="body"><h3>Sleep Clock</h3><p>Turn the clock hands to bedtime and wake-up time and find how many hours we slept.</p>
+        <button class="btn go" onclick="show('clockS')">Play ▶</button></div></div>
+      <div class="gcard"><div class="art" style="background:var(--saffron-l)" id="artFaces"></div>
+        <div class="body"><h3>How Do I Feel?</h3><p>Fresh, Lazy or Sleepy? Read the situation and pick the right face. Also play the “Sleepy Bear” mime.</p>
+        <button class="btn go" onclick="show('faceS');newFace()">Play ▶</button></div></div>
+      <div class="gcard"><div class="art" style="background:var(--green-l)"><div style="font-size:70px">📋🕘</div></div>
+        <div class="body"><h3>My Sleep Chart</h3><p>Fill the class sleep table together – sleep time, wake-up time, hours slept and how we felt.</p>
+        <button class="btn go" onclick="show('chartS')">Open ▶</button></div></div>
+      <div class="gcard"><div class="art" style="background:var(--saffron-l)"><div style="font-size:60px">⏰🪥🥣🎒⚽🍽️🛏️</div></div>
+        <div class="body"><h3>Day–Night Routine</h3><p>Put the pictures of our day in the correct order – from waking up to going to sleep.</p>
+        <button class="btn go" onclick="show('routineS');newRoutine()">Play ▶</button></div></div>
+    </div>
+    <h3 class="sec">🌟 Recap – Happy and Healthy Me</h3>
+    <div class="cards">
+      <div class="gcard"><div class="art" style="background:var(--green-l)" id="artPuzzle"></div>
+        <div class="body"><h3>Healthy Living Puzzle</h3><p>Join the three pieces – Good Food, Exercise and Sound Sleep – to make “Happy &amp; Healthy Me”.</p>
+        <button class="btn go" onclick="show('puzzleS');newPuzzle()">Play ▶</button></div></div>
+      <div class="gcard"><div class="art" style="background:var(--blue-l)"><div style="font-size:80px">👍👎</div></div>
+        <div class="body"><h3>Good Habit or Bad Habit?</h3><p>See the picture card – show thumbs up for a good habit and thumbs down for a bad habit.</p>
+        <button class="btn go" onclick="show('habitS');newHabits()">Play ▶</button></div></div>
+    </div>
+  </section>
+
+  <!-- SLEEP CLOCK -->
+  <section class="screen" id="clockS">
+    <h2 class="title">Sleep Clock</h2>
+    <p class="sub">Drag the short (hour) hand on each clock. Then count the hours of sleep.</p>
+    <div class="qbar" id="clockQ"><span id="clockQtxt">Set your own bedtime and wake-up time – or press <b>New Question</b>.</span><button class="btn sf" onclick="clockQuestion()">❓ New Question</button></div>
+    <div class="clocks">
+      <div class="clockcard night"><h3>🌙 Bedtime <small>(night)</small></h3><svg class="clock" id="cBed" viewBox="-110 -110 220 220"></svg><div class="dig" id="dBed"></div></div>
+      <div class="clockcard day"><h3>☀️ Wake-up time <small>(morning)</small></h3><svg class="clock" id="cWake" viewBox="-110 -110 220 220"></svg><div class="dig" id="dWake"></div></div>
+      <div class="panel calc" id="calc"></div>
+    </div>
+  </section>
+
+  <!-- FACES -->
+  <section class="screen" id="faceS">
+    <h2 class="title">How Do I Feel?</h2>
+    <p class="sub">Read the situation. Choose <b>Fresh</b>, <b>Lazy</b> or <b>Sleepy</b>.</p>
+    <div class="status"><span class="pill">Correct: <b id="fOk">0</b> / <b id="fTot">0</b></span><button class="btn ghost" onclick="mimeMode()">🐻 Sleepy Bear Mime</button><button class="btn ghost" onclick="newFace()">↺ Restart</button></div>
+    <div class="situ" id="situ"></div>
+    <div class="faces" id="faces"></div>
+    <div class="explain" id="fwhy" style="max-width:900px;margin:14px auto 0"></div>
+    <div class="spinrow"><button class="btn sf" id="fNext" onclick="fNextClick()">Next ▶</button></div>
+  </section>
+
+  <!-- SLEEP CHART -->
+  <section class="screen" id="chartS">
+    <h2 class="title">My Sleep Chart</h2>
+    <p class="sub">Fill one row for each child. Hours of sleep are counted automatically.</p>
+    <div class="chartwrap">
+      <table class="sleep"><thead><tr><th>#</th><th>Name</th><th>When did you sleep?</th><th>When did you get up?</th><th>Duration of sleep</th><th>How did you feel during the day?</th><th></th></tr></thead><tbody id="sleepRows"></tbody></table>
+    </div>
+    <div class="spinrow"><button class="btn sf" onclick="addRow()">＋ Add Row</button><button class="btn ghost" onclick="clearChart()">🗑 Clear Chart</button></div>
+    <div class="summary" id="summary"></div>
+  </section>
+
+  <!-- ROUTINE -->
+  <section class="screen" id="routineS">
+    <h2 class="title">Day–Night Routine</h2>
+    <p class="sub">Drag the cards into the boxes in the correct order – from morning to night.</p>
+    <div class="slots" id="slots"></div>
+    <div class="spinrow"><button class="btn gr" onclick="checkRoutine()">✔ Check Order</button><button class="btn ghost" onclick="newRoutine()">↺ Shuffle Again</button></div>
+    <div class="tray" id="rtray"></div>
+  </section>
+
+  <!-- PUZZLE -->
+  <section class="screen" id="puzzleS">
+    <h2 class="title">Healthy Living Puzzle</h2>
+    <p class="sub">Drag each piece into its place in the circle.</p>
+    <div class="pzwrap" id="pz">
+      <svg class="pztarget" id="pzT" viewBox="-170 -170 340 340"></svg>
+    </div>
+    <div class="pzmsg" id="pzMsg"></div>
+    <div class="spinrow"><button class="btn ghost" onclick="newPuzzle()">↺ Break the Puzzle</button></div>
+  </section>
+
+  <!-- HABITS -->
+  <section class="screen" id="habitS">
+    <h2 class="title">Good Habit or Bad Habit?</h2>
+    <p class="sub">Everyone shows 👍 or 👎. Then the teacher taps the answer.</p>
+    <div class="status"><span class="pill">Card <b id="hNo">1</b> / <b id="hTot">0</b></span><span class="pill">Class score: <b id="hOk">0</b></span><button class="btn ghost" onclick="newHabits()">↺ Restart</button></div>
+    <div class="hcard" id="hcard"></div>
+    <div class="spinrow"><button class="btn gr big" id="hGood" onclick="habitAns(true)">👍 Good Habit</button><button class="btn big" style="background:var(--red)" id="hBad" onclick="habitAns(false)">👎 Bad Habit</button></div>
+    <div class="explain" id="hwhy" style="max-width:900px;margin:14px auto 0"></div>
+    <div class="spinrow"><button class="btn sf" id="hNext" onclick="nextHabit()" style="display:none">Next Card ▶</button></div>
   </section>
 
   <!-- WHEEL -->
@@ -381,6 +534,213 @@ function revealSimon(){if(!cur)return;stopTimer();const h=document.getElementByI
  else{h.className='hint on dont';h.textContent='✋ Simon did NOT say it – anyone who moved, sit down!';bad();}}
 function buildDeck(){document.getElementById('deck').innerHTML=ACTIONS.map((a,i)=>`<div class="acard" onclick="callAction(ACTIONS[${i}])"><span class="e">${a.e}</span>${a.a}</div>`).join('');}
 
+/* =========================================================
+   GENERIC DRAG HELPER (pointer events – works on smartboards)
+   ========================================================= */
+function makeDrag(el,{onDrop,onHover,cls='drag'}){
+  el.addEventListener('pointerdown',e=>{
+    if(el.dataset.lock==='1')return;e.preventDefault();
+    const r=el.getBoundingClientRect(),ox=e.clientX-r.left,oy=e.clientY-r.top;
+    const g=el.cloneNode(true);g.classList.add(cls);g.style.width=r.width+'px';document.body.appendChild(g);el.style.opacity='.3';
+    const mv=ev=>{g.style.left=(ev.clientX-ox)+'px';g.style.top=(ev.clientY-oy)+'px';onHover&&onHover(ev.clientX,ev.clientY);};mv(e);
+    window.addEventListener('pointermove',mv);
+    window.addEventListener('pointerup',ev=>{window.removeEventListener('pointermove',mv);g.remove();el.style.opacity='';onDrop(el,ev.clientX,ev.clientY);},{once:true});
+  });
+}
+const inside=(el,x,y)=>{const r=el.getBoundingClientRect();return x>r.left&&x<r.right&&y>r.top&&y<r.bottom;};
+
+/* =========================================================
+   GAME 4 – SLEEP CLOCK
+   ========================================================= */
+let bedH=9,wakeH=6,clockAns=null;
+function drawClock(id,h,night){
+  const svg=document.getElementById(id);const face=night?'#2d3f73':'#fff',ink=night?'#fff':'#2b1a14';
+  let s=`<circle r="104" fill="${night?'#16224a':'#f28c28'}"/><circle r="96" fill="${face}" stroke="${ink}" stroke-width="3"/>`;
+  for(let i=0;i<60;i++){const a=i*6*Math.PI/180,r1=i%5?88:82;s+=`<line x1="${Math.sin(a)*r1}" y1="${-Math.cos(a)*r1}" x2="${Math.sin(a)*92}" y2="${-Math.cos(a)*92}" stroke="${ink}" stroke-width="${i%5?1.5:3.5}"/>`;}
+  for(let n=1;n<=12;n++){const a=n*30*Math.PI/180;s+=`<text x="${Math.sin(a)*68}" y="${-Math.cos(a)*68+7}" text-anchor="middle" font-size="20" font-weight="900" fill="${ink}">${n}</text>`;}
+  s+=`<line x1="0" y1="8" x2="0" y2="-80" stroke="${night?'#9cc9ec':'#1f78c0'}" stroke-width="5" stroke-linecap="round"/>`;// minute hand at 12
+  const a=h*30;s+=`<g class="hh" transform="rotate(${a})"><line x1="0" y1="10" x2="0" y2="-52" stroke="${night?'#f28c28':'#7b1e2b'}" stroke-width="10" stroke-linecap="round"/><circle cy="-52" r="11" fill="${night?'#f28c28':'#7b1e2b'}" opacity=".35"/></g><circle r="8" fill="${ink}"/>`;
+  svg.innerHTML=s;
+}
+function clockDrag(id,setter){
+  const svg=document.getElementById(id);
+  const upd=e=>{const r=svg.getBoundingClientRect();const x=e.clientX-(r.left+r.width/2),y=e.clientY-(r.top+r.height/2);
+    let deg=Math.atan2(x,-y)*180/Math.PI;if(deg<0)deg+=360;let h=Math.round(deg/30)%12;if(h===0)h=12;setter(h);};
+  svg.addEventListener('pointerdown',e=>{e.preventDefault();svg.setPointerCapture(e.pointerId);upd(e);
+    const mv=ev=>upd(ev);svg.addEventListener('pointermove',mv);svg.addEventListener('pointerup',()=>svg.removeEventListener('pointermove',mv),{once:true});});
+}
+function renderClocks(){drawClock('cBed',bedH,true);drawClock('cWake',wakeH,false);
+  document.getElementById('dBed').textContent=bedH+':00 pm';document.getElementById('dWake').textContent=wakeH+':00 am';
+  const toMid=bedH===12?0:12-bedH,after=wakeH===12?0:wakeH,tot=toMid+after;
+  const c=document.getElementById('calc');
+  let hops='';for(let i=1;i<=tot;i++)hops+=`<span class="hop" style="animation-delay:${i*40}ms">${i}</span>`;
+  let html=`<h3 style="color:var(--maroon);font-size:24px">Let us count</h3>
+   <div class="row">🌙 ${bedH} pm → 12 midnight = <b>${toMid} hour${toMid===1?'':'s'}</b></div>
+   <div class="row">🌅 12 midnight → ${wakeH} am = <b>${after} hour${after===1?'':'s'}</b></div>
+   <div class="hops">${hops}</div>
+   <div class="tot">Total sleep = ${toMid} + ${after} = ${tot} hours</div>`;
+  if(clockAns===null) html+= tot>=9&&tot<=12?`<div class="ok">😊 Good sleep! Children of your age need about 9 to 12 hours of sleep.</div>`
+     : tot<9?`<div class="warn">😴 Too little sleep! You may feel tired, sleepy and irritable. Children need about 9 to 12 hours.</div>`
+     :`<div class="warn">😐 That is a lot of sleep – wake up a little earlier and enjoy the morning!</div>`;
+  else html+=clockAns;
+  c.innerHTML=html;}
+const NAMES=['Asha','Ravi','Meena','Arjun','Sana','Kabir','Priya','Rohan','Anaya','Dev'];
+let cq=null;
+function clockQuestion(){const n=NAMES[Math.random()*NAMES.length|0];const b=[8,9,10][Math.random()*3|0],w=[5,6,7][Math.random()*3|0];
+  cq={b,w,ans:(12-b)+w};bedH=12;wakeH=12;
+  document.getElementById('clockQtxt').innerHTML=`<b>${n}</b> slept at <b>${b} pm</b> and woke up at <b>${w} am</b>. Set both clocks. How many hours did ${n} sleep?`;
+  const opts=shuffle([cq.ans,cq.ans+1,cq.ans-2]);
+  clockAns=`<div class="qopts">${opts.map(o=>`<button class="opt" onclick="clockPick(this,${o})">${o} hours</button>`).join('')}</div>`;renderClocks();}
+function clockPick(btn,o){if(!cq)return;const okSet=bedH===cq.b&&wakeH===cq.w;
+  if(o===cq.ans){btn.classList.add('ok');good();toast(okSet?'Correct! Well done.':'Correct answer! Now also set the clocks.','ok');if(okSet)confetti();}
+  else{btn.classList.add('no');bad();toast('Count the hours again on the clock!','no');}}
+function initClock(){clockDrag('cBed',h=>{bedH=h;renderClocks();});clockDrag('cWake',h=>{wakeH=h;renderClocks();});renderClocks();}
+
+/* =========================================================
+   GAME 5 – HOW DO I FEEL? (Fresh / Lazy / Sleepy)
+   ========================================================= */
+const FACE={
+ fresh:`<svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="88" fill="#ffe08a" stroke="#2b1a14" stroke-width="6"/><circle cx="70" cy="82" r="11" fill="#2b1a14"/><circle cx="130" cy="82" r="11" fill="#2b1a14"/><circle cx="74" cy="78" r="3.5" fill="#fff"/><circle cx="134" cy="78" r="3.5" fill="#fff"/><path d="M58 118 Q100 162 142 118" stroke="#2b1a14" stroke-width="7" fill="#fff" stroke-linejoin="round"/><circle cx="50" cy="118" r="10" fill="#f6a38f" opacity=".7"/><circle cx="150" cy="118" r="10" fill="#f6a38f" opacity=".7"/><path d="M158 30 l6 12 l12 6 l-12 6 l-6 12 l-6 -12 l-12 -6 l12 -6 Z" fill="#f28c28"/></svg>`,
+ lazy:`<svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="88" fill="#ffe08a" stroke="#2b1a14" stroke-width="6"/><path d="M52 86 H88 M112 86 H148" stroke="#2b1a14" stroke-width="7" stroke-linecap="round"/><path d="M58 86 Q70 100 82 86 M118 86 Q130 100 142 86" fill="#2b1a14"/><path d="M70 134 H130" stroke="#2b1a14" stroke-width="7" stroke-linecap="round"/><path d="M40 60 Q60 50 80 62" stroke="#2b1a14" stroke-width="4" fill="none" stroke-linecap="round"/></svg>`,
+ sleepy:`<svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="88" fill="#ffe08a" stroke="#2b1a14" stroke-width="6"/><path d="M54 88 Q70 100 86 88 M114 88 Q130 100 146 88" stroke="#2b1a14" stroke-width="7" fill="none" stroke-linecap="round"/><ellipse cx="100" cy="135" rx="15" ry="19" fill="#7b1e2b" stroke="#2b1a14" stroke-width="5"/><text x="140" y="52" font-size="30" font-weight="900" fill="#1f78c0">Z</text><text x="160" y="32" font-size="22" font-weight="900" fill="#1f78c0">z</text><text x="174" y="18" font-size="16" font-weight="900" fill="#1f78c0">z</text></svg>`,
+};
+const FNAME={fresh:'Fresh',lazy:'Lazy',sleepy:'Sleepy'};
+const SITU=[
+ {e:'🛏️',t:'Slept at 9 pm and woke up at 6 am',a:'fresh',w:'9 hours of good sleep takes away tiredness – we feel fresh!'},
+ {e:'📺',t:'Watched TV till midnight on a school night',a:'sleepy',w:'Too little sleep makes us feel sleepy and it is hard to focus in class.'},
+ {e:'🛋️',t:'Lay on the sofa all day, no play, no exercise',a:'lazy',w:'Without play and exercise our body feels lazy and dull.'},
+ {e:'⚽',t:'Played outside in the evening and slept 10 hours',a:'fresh',w:'Play + good rest = a fresh and energetic body.'},
+ {e:'📱',t:'Played mobile games in bed late at night',a:'sleepy',w:'Screens late at night keep us awake – next day we feel sleepy.'},
+ {e:'🧘',t:'Did yoga in the morning after a good night’s sleep',a:'fresh',w:'Yoga and good sleep keep us happy and active.'},
+ {e:'⏰',t:'Woke up at 6 am but slept only at 1 am',a:'sleepy',w:'Only 5 hours of sleep is too little – we feel sleepy and irritable.'},
+ {e:'🍟',t:'Ate a heavy meal and sat in one place all evening',a:'lazy',w:'Heavy food and no activity make us feel lazy.'},
+];
+let fq=[],fcur=null,fOk=0,fTot=0,fDone=false;
+function faceButtons(onclick){return ['fresh','lazy','sleepy'].map(k=>`<button class="face" data-k="${k}" onclick="${onclick}('${k}',this)">${FACE[k]}<b>${FNAME[k]}</b></button>`).join('');}
+function newFace(){mime=false;fq=shuffle(SITU);fOk=0;fTot=0;document.getElementById('fNext').style.display='';nextFace();}
+function nextFace(){if(!fq.length){document.getElementById('situ').innerHTML=`🎉 All done! You got ${fOk} out of ${fTot} right.`;document.getElementById('faces').innerHTML='';document.getElementById('fwhy').className='explain';confetti();return;}
+  fcur=fq.pop();fDone=false;document.getElementById('situ').innerHTML=`<span class="e">${fcur.e}</span><span>${fcur.t}. How will I feel?</span>`;
+  document.getElementById('faces').innerHTML=faceButtons('pickFace');document.getElementById('fwhy').className='explain';updF();}
+function updF(){document.getElementById('fOk').textContent=fOk;document.getElementById('fTot').textContent=fTot;}
+function pickFace(k,btn){if(fDone||!fcur)return;fDone=true;fTot++;
+  document.querySelectorAll('#faces .face').forEach(b=>{if(b.dataset.k===fcur.a)b.classList.add('ok');});
+  if(k===fcur.a){fOk++;good();}else{btn.classList.add('no');bad();}
+  const w=document.getElementById('fwhy');w.innerHTML=(k===fcur.a?'✅ ':'💡 ')+fcur.w;w.className='explain on';updF();}
+let mime=false;
+function fNextClick(){mime?mimeMode():nextFace();}
+function mimeMode(){mime=true;fcur=null;const k=['fresh','lazy','sleepy'][Math.random()*3|0];
+  document.getElementById('situ').innerHTML='<span class="e">🐻</span><span>Sleepy Bear Mime – one child acts this feeling, the class guesses!</span>';
+  document.getElementById('faces').innerHTML=`<div class="face big" style="cursor:pointer" onclick="this.innerHTML=FACE['${k}']+'<b>${FNAME[k]}</b>';beep(660,.12)"><div style="font-size:150px;line-height:340px">❓</div><b>Teacher: tap to see the feeling</b></div>`;
+  document.getElementById('fwhy').className='explain';}
+
+/* =========================================================
+   GAME 6 – MY SLEEP CHART (saved in this browser)
+   ========================================================= */
+const BEDT=['7:00 pm','7:30 pm','8:00 pm','8:30 pm','9:00 pm','9:30 pm','10:00 pm','10:30 pm','11:00 pm','11:30 pm','12:00 midnight'];
+const WAKET=['5:00 am','5:30 am','6:00 am','6:30 am','7:00 am','7:30 am','8:00 am','8:30 am','9:00 am'];
+const toH=t=>{const m=t.match(/(\d+):(\d+)/);let h=+m[1]+(+m[2])/60;if(t.includes('pm')&&h<12)h+=12;if(t.includes('midnight'))h=24;return h;};
+let rows=[];
+function loadRows(){try{rows=JSON.parse(localStorage.getItem('tw6SleepChart')||'null')||[];}catch(e){rows=[];}if(!rows.length)rows=Array.from({length:5},()=>({n:'',b:'9:00 pm',w:'6:00 am',f:''}));}
+function saveRows(){try{localStorage.setItem('tw6SleepChart',JSON.stringify(rows));}catch(e){}}
+function dur(r){const d=(24-toH(r.b))+toH(r.w);const h=Math.floor(d),m=Math.round((d-h)*60);return {d,txt:h+' h'+(m?' '+m+' min':'')};}
+function renderChart(){const tb=document.getElementById('sleepRows');
+  tb.innerHTML=rows.map((r,i)=>{const D=dur(r);return `<tr><td><b>${i+1}</b></td>
+   <td><input value="${r.n.replace(/"/g,'&quot;')}" placeholder="Name" oninput="rows[${i}].n=this.value;saveRows()"></td>
+   <td><select onchange="rows[${i}].b=this.value;saveRows();renderChart()">${BEDT.map(t=>`<option ${t===r.b?'selected':''}>${t}</option>`).join('')}</select></td>
+   <td><select onchange="rows[${i}].w=this.value;saveRows();renderChart()">${WAKET.map(t=>`<option ${t===r.w?'selected':''}>${t}</option>`).join('')}</select></td>
+   <td class="dur">${D.txt} ${D.d>=9?'✅':'⚠️'}</td>
+   <td>${['fresh','lazy','sleepy'].map((k,j)=>`<button class="fbtn ${r.f===k?'on':''}" onclick="rows[${i}].f='${k}';saveRows();renderChart()">${['😊','😐','😴'][j]}<small>${'abc'[j]}: ${FNAME[k]}</small></button>`).join('')}</td>
+   <td><button class="del" title="Delete row" onclick="rows.splice(${i},1);saveRows();renderChart()">✖</button></td></tr>`;}).join('');
+  const filled=rows.filter(r=>r.n.trim());const list=filled.length?filled:rows;
+  const avg=list.reduce((a,r)=>a+dur(r).d,0)/Math.max(1,list.length);
+  const cnt=k=>list.filter(r=>r.f===k).length;const enough=list.filter(r=>dur(r).d>=9).length;
+  document.getElementById('summary').innerHTML=`<span class="pill">Children: <b>${list.length}</b></span><span class="pill">Average sleep: <b>${avg.toFixed(1)} h</b></span>
+   <span class="pill">9+ hours: <b>${enough}</b></span><span class="pill">😊 Fresh: <b>${cnt('fresh')}</b></span><span class="pill">😐 Lazy: <b>${cnt('lazy')}</b></span><span class="pill">😴 Sleepy: <b>${cnt('sleepy')}</b></span>`;}
+function addRow(){rows.push({n:'',b:'9:00 pm',w:'6:00 am',f:''});saveRows();renderChart();}
+function clearChart(){rows=Array.from({length:5},()=>({n:'',b:'9:00 pm',w:'6:00 am',f:''}));saveRows();renderChart();toast('Chart cleared');}
+
+/* =========================================================
+   GAME 7 – DAY–NIGHT ROUTINE STRIP
+   ========================================================= */
+const ROUTINE=[{e:'⏰',n:'Wake up early',t:'Morning'},{e:'🪥',n:'Brush teeth & bathe',t:'Morning'},{e:'🥣',n:'Eat breakfast',t:'Morning'},
+ {e:'🎒',n:'Go to school & study',t:'Day'},{e:'⚽',n:'Play outside',t:'Evening'},{e:'🍽️',n:'Eat dinner',t:'Night'},{e:'🛏️',n:'Sleep on time',t:'Night'}];
+function routineTile(i){const r=ROUTINE[i];const d=document.createElement('div');d.className='rtile';d.dataset.i=i;d.innerHTML=`<span class="e">${r.e}</span>${r.n}<div class="t">${r.t}</div>`;
+  makeDrag(d,{onHover:(x,y)=>document.querySelectorAll('.slot').forEach(s=>s.classList.toggle('hot',inside(s,x,y))),
+    onDrop:(el,x,y)=>{let tgt=null;document.querySelectorAll('.slot').forEach(s=>{s.classList.remove('hot');if(inside(s,x,y))tgt=s;});
+      if(tgt){const old=tgt.querySelector('.rtile');if(old&&old!==el)document.getElementById('rtray').appendChild(old);tgt.appendChild(el);document.querySelectorAll('.slot').forEach(s=>s.classList.remove('right','wrongs'));beep(600,.06);}
+      else if(inside(document.getElementById('rtray'),x,y))document.getElementById('rtray').appendChild(el);}});
+  return d;}
+function newRoutine(){const sl=document.getElementById('slots');sl.innerHTML=ROUTINE.map((_,i)=>`<div class="slot" data-i="${i}"><span class="n">${i+1}</span></div>`).join('');
+  const tr=document.getElementById('rtray');tr.innerHTML='';let order;do{order=shuffle(ROUTINE.map((_,i)=>i));}while(order.every((v,i)=>v===i));order.forEach(i=>tr.appendChild(routineTile(i)));}
+function checkRoutine(){const sl=[...document.querySelectorAll('.slot')];if(sl.some(s=>!s.querySelector('.rtile'))){toast('First fill all the boxes!','no');return;}
+  let ok=0;sl.forEach(s=>{const t=s.querySelector('.rtile');const good_=+t.dataset.i===+s.dataset.i;s.classList.toggle('right',good_);s.classList.toggle('wrongs',!good_);if(good_)ok++;});
+  if(ok===ROUTINE.length){good();confetti();toast('Perfect! A healthy day from morning to night.','ok');}
+  else{bad();toast(`${ok} of ${ROUTINE.length} in the right place. Move the red ones!`,'no');}}
+
+/* =========================================================
+   GAME 8 – HEALTHY LIVING PUZZLE
+   ========================================================= */
+const PZ=[{n:'Good Food',e:'🥗',c:'#f28c28',sub:'Eat right, on time'},{n:'Exercise',e:'🏃',c:'#138808',sub:'Play & do yoga'},{n:'Sound Sleep',e:'😴',c:'#1f78c0',sub:'Rest well'}];
+function sector(i,R=150,r=48){const a0=(i*120-90-60)*Math.PI/180,a1=a0+120*Math.PI/180;const P=(a,rr)=>`${(Math.cos(a)*rr).toFixed(1)} ${(Math.sin(a)*rr).toFixed(1)}`;
+  return `M${P(a0,r)} L${P(a0,R)} A${R} ${R} 0 0 1 ${P(a1,R)} L${P(a1,r)} A${r} ${r} 0 0 0 ${P(a0,r)} Z`;}
+function pieceSVG(i,ghost){const p=PZ[i];const am=(i*120-90)*Math.PI/180,cx=Math.cos(am)*90,cy=Math.sin(am)*90;
+  if(ghost)return `<path d="${sector(i)}" fill="#fff" stroke="#ead9c3" stroke-width="4" stroke-dasharray="10 8"/><text x="${cx}" y="${cy+8}" text-anchor="middle" font-size="18" font-weight="800" fill="#c9b49b">${p.n}</text>`;
+  return `<g><path d="${sector(i)}" fill="${p.c}" stroke="#fff" stroke-width="5"/><text x="${cx}" y="${cy-10}" text-anchor="middle" font-size="30">${p.e}</text><text x="${cx}" y="${cy+16}" text-anchor="middle" font-size="16" font-weight="900" fill="#fff">${p.n}</text><text x="${cx}" y="${cy+33}" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">${p.sub}</text></g>`;}
+let pzPlaced=0;
+function newPuzzle(){const wrap=document.getElementById('pz');wrap.querySelectorAll('.piece').forEach(p=>p.remove());pzPlaced=0;
+  const T=document.getElementById('pzT');T.innerHTML=PZ.map((_,i)=>pieceSVG(i,true)).join('')+`<circle r="44" fill="#fff" stroke="#ead9c3" stroke-width="4"/><text y="6" text-anchor="middle" font-size="16" font-weight="800" fill="#c9b49b">?</text>`;
+  document.getElementById('pzMsg').innerHTML='Good food 🥗 + Exercise 🏃 + Sound sleep 😴<br>= ?';
+  const W=wrap.clientWidth;const spots=shuffle([[W*0.60,140],[W*0.86,190],[W*0.70,400]]);
+  shuffle([0,1,2]).forEach((i,k)=>{const d=document.createElement('div');d.className='piece';d.dataset.i=i;
+    d.innerHTML=`<svg viewBox="-170 -170 340 340" width="420" height="420">${pieceSVG(i)}</svg>`;
+    const am=(i*120-90)*Math.PI/180,k2=420/340,sx=210+Math.cos(am)*96*k2,sy=210+Math.sin(am)*96*k2;
+    d.style.left=(spots[k][0]-sx)+'px';d.style.top=(spots[k][1]-sy)+'px';wrap.appendChild(d);pieceDrag(d);});}
+function pieceDrag(d){const g=d.querySelector('g');
+  g.addEventListener('pointerdown',e=>{if(d.dataset.lock)return;e.preventDefault();d.classList.add('dragging');
+    const sx=e.clientX,sy=e.clientY,l0=parseFloat(d.style.left),t0=parseFloat(d.style.top);
+    const mv=ev=>{d.style.left=(l0+ev.clientX-sx)+'px';d.style.top=(t0+ev.clientY-sy)+'px';};
+    window.addEventListener('pointermove',mv);
+    window.addEventListener('pointerup',()=>{window.removeEventListener('pointermove',mv);d.classList.remove('dragging');
+      const dx=parseFloat(d.style.left)-40,dy=parseFloat(d.style.top)-70;
+      if(Math.hypot(dx,dy)<70){d.style.left='40px';d.style.top='70px';d.dataset.lock='1';pzPlaced++;good();toast(PZ[d.dataset.i].n+' fits!','ok');
+        if(pzPlaced===3)setTimeout(()=>{document.getElementById('pzT').insertAdjacentHTML('beforeend','');
+          const c=document.createElement('div');c.className='piece';c.style.left='40px';c.style.top='70px';c.style.zIndex=6;
+          c.innerHTML=`<svg viewBox="-170 -170 340 340" width="420" height="420"><circle r="46" fill="#7b1e2b" stroke="#f28c28" stroke-width="5"/><text y="-4" text-anchor="middle" font-size="13.5" font-weight="900" fill="#fff">Happy &amp;</text><text y="14" text-anchor="middle" font-size="13.5" font-weight="900" fill="#fff">Healthy Me</text><text y="32" text-anchor="middle" font-size="14">😊</text></svg>`;
+          document.getElementById('pz').appendChild(c);
+          document.getElementById('pzMsg').innerHTML='🎉 <b>Happy &amp; Healthy Me!</b><br><span style="font-size:.75em;color:var(--ink)">Eating right, at the right time, in the right way, playing and exercising, and resting well keep our body and mind happy and healthy.</span>';confetti();},300);}
+      else beep(300,.08);},{once:true});});}
+
+/* =========================================================
+   GAME 9 – GOOD HABIT / BAD HABIT
+   ========================================================= */
+const HABITS=[
+ {e:'🛏️',t:'Going to bed on time',g:true,w:'Sleeping on time gives our body enough rest.'},
+ {e:'📺',t:'Watching TV late at night',g:false,w:'Late-night TV steals our sleep – we feel tired and sleepy next day.'},
+ {e:'⚽',t:'Playing outside with friends',g:true,w:'Outdoor play keeps us strong and energetic.'},
+ {e:'📱',t:'Using the mobile all day',g:false,w:'Too much screen time is bad for our eyes, sleep and body.'},
+ {e:'🧘',t:'Doing yoga every morning',g:true,w:'Yoga improves posture and keeps us happy and active.'},
+ {e:'🍔',t:'Eating junk food every day',g:false,w:'Junk food every day is not good for health – eat a balanced diet.'},
+ {e:'🥗',t:'Eating fruits and vegetables',g:true,w:'They give our body what it needs to grow healthy.'},
+ {e:'🚫🥣',t:'Skipping breakfast',g:false,w:'Breakfast gives us energy for the school day.'},
+ {e:'📖',t:'Reading a book before sleeping',g:true,w:'A calm activity before bed helps us sleep well.'},
+ {e:'🛋️',t:'Sitting all day without playing',g:false,w:'Our body needs movement every day.'},
+ {e:'⏰',t:'Waking up early',g:true,w:'Waking up early gives time for exercise and a relaxed start.'},
+ {e:'🍚',t:'Wasting food on the plate',g:false,w:'Every grain is precious – take only what you need.'},
+];
+let hq=[],hcur=null,hOk=0,hNo=0,hDone=false;
+function newHabits(){hq=shuffle(HABITS);hOk=0;hNo=0;nextHabit();}
+function nextHabit(){if(!hq.length){document.getElementById('hcard').innerHTML=`<div class="e">🏆</div><div class="t">Class score: ${hOk} / ${HABITS.length}</div>`;document.getElementById('hcard').className='hcard';
+  document.getElementById('hwhy').className='explain';document.getElementById('hNext').style.display='none';confetti();return;}
+  hcur=hq.pop();hDone=false;hNo++;const c=document.getElementById('hcard');c.className='hcard';c.innerHTML=`<div class="e">${hcur.e}</div><div class="t">${hcur.t}</div>`;
+  document.getElementById('hwhy').className='explain';document.getElementById('hNext').style.display='none';
+  ['hGood','hBad'].forEach(id=>document.getElementById(id).disabled=false);
+  document.getElementById('hNo').textContent=hNo;document.getElementById('hTot').textContent=HABITS.length;document.getElementById('hOk').textContent=hOk;}
+function habitAns(g){if(hDone||!hcur)return;hDone=true;const right=g===hcur.g;if(right){hOk++;good();}else bad();
+  const c=document.getElementById('hcard');c.classList.add(hcur.g?'good':'bad');
+  const w=document.getElementById('hwhy');w.innerHTML=(right?'✅ Right! ':'❌ Oops! ')+`This is a <b>${hcur.g?'GOOD':'BAD'} habit</b> ${hcur.g?'👍':'👎'}. `+hcur.w;w.className='explain on';
+  ['hGood','hBad'].forEach(id=>document.getElementById(id).disabled=true);
+  document.getElementById('hOk').textContent=hOk;document.getElementById('hNext').style.display='';}
+
 /* ---------- init ---------- */
 document.getElementById('artWheel').innerHTML=`<svg viewBox="-210 -210 420 420" style="height:150px">${''}</svg>`;
 drawWheel();
@@ -388,6 +748,10 @@ document.getElementById('artWheel').innerHTML=`<svg viewBox="-215 -215 430 430" 
 document.getElementById('artSort').innerHTML=`<div style="display:flex;gap:14px">${['chess','carrom','cricket','kite'].map(k=>`<div style="width:74px;height:74px;background:#fff;border-radius:14px;padding:6px">${ICON[k]}</div>`).join('')}</div>`;
 document.getElementById('artSimon').innerHTML='<div style="font-size:80px">🙆🦘👏</div>';
 buildDeck();setTurn();
+initClock();loadRows();renderChart();
+document.getElementById('artClock').innerHTML='<svg viewBox="-110 -110 220 220" style="height:150px">'+document.getElementById('cWake').innerHTML+'</svg>';
+document.getElementById('artFaces').innerHTML=['fresh','lazy','sleepy'].map(k=>`<div style="width:100px">${FACE[k]}</div>`).join('');
+document.getElementById('artPuzzle').innerHTML='<svg viewBox="-160 -160 320 320" style="height:150px">'+PZ.map((_,i)=>pieceSVG(i)).join('')+'<circle r="46" fill="#7b1e2b"/><text y="8" text-anchor="middle" font-size="26">😊</text></svg>';
 </script>
 </body>
 </html>
