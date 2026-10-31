@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Happy and Healthy Living – Sports Games | Class 4 TWAU Ch 6</title>
+<style>
+:root{
+  --maroon:#7b1e2b; --maroon-d:#5a1520; --saffron:#f28c28; --saffron-l:#ffe2c2;
+  --green:#138808; --green-l:#dff3d8; --cream:#fff8ec; --ink:#2b1a14; --muted:#6d5a50;
+  --red:#d23b2f; --red-l:#fde3e0; --blue:#1f78c0; --blue-l:#e3f1fb; --card:#fff;
+  --line:#ead9c3; --shadow:0 6px 18px rgba(90,21,32,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{font-family:"Segoe UI","Nirmala UI",system-ui,-apple-system,Roboto,"Noto Sans",sans-serif;background:var(--cream);color:var(--ink);
+  user-select:none;-webkit-user-select:none;touch-action:manipulation;overflow-x:hidden}
+button{font:inherit;cursor:pointer;border:none}
+.topbar{display:flex;align-items:center;gap:12px;padding:10px 18px;background:var(--maroon);color:#fff;border-bottom:5px solid var(--saffron);position:sticky;top:0;z-index:30}
+.topbar .badge{background:var(--saffron);color:var(--maroon-d);font-weight:800;border-radius:10px;padding:6px 10px;font-size:14px;white-space:nowrap}
+.topbar h1{font-size:clamp(17px,2.2vw,28px);font-weight:800;line-height:1.1}
+.topbar h1 small{display:block;font-size:.55em;font-weight:500;opacity:.85}
+.topbar .sp{flex:1}
+.tbtn{background:rgba(255,255,255,.14);color:#fff;border-radius:10px;padding:9px 13px;font-weight:700;font-size:15px}
+.tbtn:hover{background:rgba(255,255,255,.25)}
+main{max-width:1500px;margin:0 auto;padding:18px}
+.screen{display:none;animation:fade .3s ease}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:14px 10px 22px}
+footer b{color:var(--maroon)}
+h2.title{font-size:clamp(22px,2.6vw,34px);color:var(--maroon);text-align:center;margin:4px 0 6px}
+p.sub{text-align:center;color:var(--muted);font-size:clamp(14px,1.5vw,19px);margin-bottom:16px}
+.btn{background:var(--maroon);color:#fff;border-radius:14px;padding:12px 22px;font-weight:800;font-size:clamp(16px,1.7vw,21px);box-shadow:var(--shadow)}
+.btn:hover{background:var(--maroon-d)}
+.btn.sf{background:var(--saffron);color:var(--maroon-d)}
+.btn.gr{background:var(--green)}
+.btn.ghost{background:#fff;color:var(--maroon);border:3px solid var(--maroon)}
+.btn:disabled{opacity:.45;cursor:default}
+
+/* HOME */
+.factband{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:4px 0 18px}
+.fact{background:#fff;border:2px solid var(--line);border-radius:999px;padding:8px 16px;font-weight:700;font-size:clamp(14px,1.5vw,19px)}
+.fact b{color:var(--maroon)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.gcard{background:var(--card);border-radius:22px;box-shadow:var(--shadow);overflow:hidden;text-align:left;display:flex;flex-direction:column;border:3px solid transparent;transition:transform .15s,border-color .15s}
+.gcard:hover{transform:translateY(-3px);border-color:var(--saffron)}
+.gcard .art{height:170px;display:flex;align-items:center;justify-content:center}
+.gcard .body{padding:16px 18px 20px;flex:1;display:flex;flex-direction:column;gap:8px}
+.gcard h3{font-size:24px;color:var(--maroon)}
+.gcard p{color:var(--muted);font-size:16px;line-height:1.4;flex:1}
+.gcard .go{align-self:flex-start}
+
+/* TEAMS */
+.teams{display:flex;gap:14px;justify-content:center;margin-bottom:14px;flex-wrap:wrap}
+.team{min-width:200px;background:#fff;border:4px solid var(--line);border-radius:18px;padding:10px 18px;text-align:center;box-shadow:var(--shadow);transition:all .2s}
+.team .nm{font-weight:800;font-size:20px}
+.team .sc{font-size:42px;font-weight:900;line-height:1}
+.team.a .nm,.team.a .sc{color:var(--blue)}
+.team.b .nm,.team.b .sc{color:var(--green)}
+.team.turn{transform:scale(1.06)}
+.team.a.turn{border-color:var(--blue);background:var(--blue-l)}
+.team.b.turn{border-color:var(--green);background:var(--green-l)}
+
+/* WHEEL */
+.wheelwrap{display:grid;grid-template-columns:minmax(320px,560px) 1fr;gap:26px;align-items:start}
+@media(max-width:980px){.wheelwrap{grid-template-columns:1fr}}
+.wheelbox{position:relative;width:100%;aspect-ratio:1}
+#wheel{width:100%;height:100%;transition:transform 4.2s cubic-bezier(.12,.75,.12,1)}
+.pointer{position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:24px solid transparent;border-right:24px solid transparent;border-top:44px solid var(--maroon);filter:drop-shadow(0 3px 2px rgba(0,0,0,.3));z-index:2}
+.hub{position:absolute;inset:0;margin:auto;width:22%;height:22%;border-radius:50%;background:var(--maroon);color:#fff;font-weight:900;font-size:clamp(16px,2vw,26px);display:flex;align-items:center;justify-content:center;border:6px solid var(--saffron);box-shadow:var(--shadow)}
+.panel{background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:20px 22px;min-height:300px}
+.panel .gname{font-size:clamp(28px,3.4vw,46px);font-weight:900;color:var(--maroon);display:flex;align-items:center;gap:14px}
+.panel .gname svg{width:90px;height:90px;flex:none}
+.panel .q{font-size:clamp(18px,2vw,26px);font-weight:700;margin:14px 0 12px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.opt{background:var(--cream);border:3px solid var(--line);border-radius:16px;padding:14px 10px;font-weight:800;font-size:clamp(17px,1.8vw,23px);color:var(--ink)}
+.opt:hover{border-color:var(--saffron)}
+.opt.ok{background:var(--green-l);border-color:var(--green);color:var(--green)}
+.opt.no{background:var(--red-l);border-color:var(--red);color:var(--red)}
+.explain{margin-top:14px;padding:14px 16px;border-radius:14px;background:var(--saffron-l);font-size:clamp(16px,1.7vw,21px);line-height:1.45;display:none}
+.explain.on{display:block}
+.idle{color:var(--muted);font-size:clamp(18px,2vw,24px);text-align:center;padding:50px 10px}
+.spinrow{display:flex;justify-content:center;gap:12px;margin-top:16px;flex-wrap:wrap}
+
+/* SORT */
+.sortgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px}
+.bin{border:4px dashed var(--line);border-radius:22px;min-height:300px;padding:12px;background:#fff;transition:all .15s}
+.bin h3{text-align:center;font-size:clamp(20px,2.3vw,30px);margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:10px}
+.bin.in h3{color:var(--blue)} .bin.out h3{color:var(--green)}
+.bin.in{border-color:#9cc9ec} .bin.out{border-color:#9fd38f}
+.bin.hot{transform:scale(1.02);background:var(--saffron-l);border-style:solid}
+.binitems{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.tray{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;min-height:120px;padding:14px;background:var(--saffron-l);border-radius:22px;margin-top:16px}
+.gtile{width:138px;background:#fff;border:3px solid var(--line);border-radius:18px;padding:8px 6px 10px;text-align:center;font-weight:800;font-size:17px;box-shadow:var(--shadow);touch-action:none;cursor:grab}
+.gtile svg{width:84px;height:70px;display:block;margin:0 auto 4px}
+.gtile.drag{position:fixed;z-index:100;cursor:grabbing;transform:scale(1.08) rotate(-3deg);pointer-events:none}
+.gtile.placed{cursor:default;width:118px;font-size:15px;box-shadow:none}
+.gtile.placed svg{width:70px;height:56px}
+.bin.in .gtile.placed{border-color:var(--blue);background:var(--blue-l)}
+.bin.out .gtile.placed{border-color:var(--green);background:var(--green-l)}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+.status{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:4px 0 6px}
+.pill{background:#fff;border:2px solid var(--line);border-radius:999px;padding:8px 16px;font-weight:800;font-size:18px}
+.pill b{color:var(--maroon)}
+.toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(30px);background:var(--ink);color:#fff;padding:14px 22px;border-radius:14px;font-weight:700;font-size:clamp(16px,1.8vw,22px);opacity:0;transition:all .25s;z-index:200;max-width:90vw;text-align:center}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.ok{background:var(--green)} .toast.no{background:var(--red)}
+
+/* SIMON */
+.simon{display:grid;grid-template-columns:1fr 300px;gap:20px}
+@media(max-width:980px){.simon{grid-template-columns:1fr}}
+.stage{background:#fff;border-radius:26px;box-shadow:var(--shadow);min-height:470px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;position:relative;overflow:hidden}
+.stage .says{font-size:clamp(26px,3.4vw,46px);font-weight:900;color:var(--green);min-height:1.3em}
+.stage .says.not{color:var(--muted)}
+.stage .act{font-size:clamp(44px,7vw,100px);font-weight:900;color:var(--maroon);line-height:1.05}
+.stage .emo{font-size:clamp(80px,12vw,170px);line-height:1.1}
+.stage .hint{margin-top:12px;font-size:clamp(18px,2vw,26px);font-weight:800;padding:10px 18px;border-radius:14px;visibility:hidden}
+.stage .hint.on{visibility:visible}
+.stage .hint.do{background:var(--green-l);color:var(--green)}
+.stage .hint.dont{background:var(--red-l);color:var(--red)}
+.ring{position:absolute;top:16px;right:18px;width:84px;height:84px}
+.ring text{font-weight:900;font-size:30px;fill:var(--maroon)}
+.side{display:flex;flex-direction:column;gap:12px}
+.box{background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:14px 16px}
+.box h4{color:var(--maroon);font-size:18px;margin-bottom:8px}
+.box li{margin-left:20px;font-size:16px;line-height:1.5}
+.tog{display:flex;align-items:center;justify-content:space-between;gap:8px;font-weight:700;font-size:16px;padding:6px 0}
+.tog input{width:24px;height:24px;accent-color:var(--maroon)}
+.tog select{font:inherit;padding:4px 8px;border-radius:8px;border:2px solid var(--line)}
+.deck{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:16px}
+.acard{background:#fff;border:3px solid var(--line);border-radius:16px;padding:10px;text-align:center;font-weight:800;font-size:17px;cursor:pointer}
+.acard .e{font-size:40px;display:block}
+.acard:hover{border-color:var(--saffron)}
+
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:150}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="badge">Class 4 · TWAU</span>
+  <h1>Happy and Healthy Living – Sports Games<small>Chapter 6 · Our Wondrous World · Enjoy Sports</small></h1>
+  <span class="sp"></span>
+  <button class="tbtn" id="homeBtn" onclick="show('home')">⌂ Home</button>
+  <button class="tbtn" onclick="toggleFS()">⛶ Full screen</button>
+</div>
+<main>
+  <!-- HOME -->
+  <section class="screen on" id="home">
+    <h2 class="title">Let's Play and Stay Healthy!</h2>
+    <p class="sub">Regular play and exercise keep us strong, energetic and happy.</p>
+    <div class="factband">
+      <span class="fact">🏃 Play in open fields</span><span class="fact">🧘 Yoga improves <b>posture</b></span><span class="fact">😴 Rest after play</span>
+    </div>
+    <div class="cards">
+      <div class="gcard"><div class="art" style="background:var(--saffron-l)" id="artWheel"></div>
+        <div class="body"><h3>Games Wheel</h3><p>Spin the wheel! Name the game and tell which body part moves the most while playing it. Two teams, one point for each correct answer.</p>
+        <button class="btn go" onclick="show('wheelS')">Play ▶</button></div></div>
+      <div class="gcard"><div class="art" style="background:var(--blue-l)" id="artSort"></div>
+        <div class="body"><h3>Indoor or Outdoor?</h3><p>Drag each game card into the correct box – Indoor Games or Outdoor Games.</p>
+        <button class="btn go" onclick="show('sortS');newSort()">Play ▶</button></div></div>
+      <div class="gcard"><div class="art" style="background:var(--green-l)" id="artSimon"></div>
+        <div class="body"><h3>Simon Says</h3><p>Do the action only when you hear “Simon says”! A fun movement game for the whole class.</p>
+        <button class="btn go" onclick="show('simonS')">Play ▶</button></div></div>
+    </div>
+  </section>
+
+  <!-- WHEEL -->
+  <section class="screen" id="wheelS">
+    <h2 class="title">Games Wheel</h2>
+    <p class="sub">Spin, name the game, then choose the body part that moves the most.</p>
+    <div class="teams">
+      <div class="team a turn" id="tA"><div class="nm">Team A</div><div class="sc" id="sA">0</div></div>
+      <div class="team b" id="tB"><div class="nm">Team B</div><div class="sc" id="sB">0</div></div>
+    </div>
+    <div class="wheelwrap">
+      <div>
+        <div class="wheelbox"><div class="pointer"></div><svg id="wheel" viewBox="-210 -210 420 420"></svg><div class="hub">SPIN</div></div>
+        <div class="spinrow"><button class="btn sf" id="spinBtn" onclick="spin()">🎡 Spin the Wheel</button><button class="btn ghost" onclick="resetWheel()">↺ Reset Scores</button></div>
+      </div>
+      <div class="panel" id="wpanel"><div class="idle">Press <b>Spin the Wheel</b> to start!<br><br>Team A goes first.</div></div>
+    </div>
+  </section>
+
+  <!-- SORT -->
+  <section class="screen" id="sortS">
+    <h2 class="title">Indoor or Outdoor?</h2>
+    <p class="sub">Drag each game card into the correct box.</p>
+    <div class="status"><span class="pill">Placed: <b id="sPlaced">0</b> / <b id="sTotal">0</b></span><span class="pill">Mistakes: <b id="sWrong">0</b></span><button class="btn ghost" onclick="newSort()">↺ New Game</button></div>
+    <div class="sortgrid">
+      <div class="bin in" data-k="in"><h3>🏠 Indoor Games</h3><div class="binitems"></div></div>
+      <div class="bin out" data-k="out"><h3>🌳 Outdoor Games</h3><div class="binitems"></div></div>
+    </div>
+    <div class="tray" id="tray"></div>
+  </section>
+
+  <!-- SIMON -->
+  <section class="screen" id="simonS">
+    <h2 class="title">Simon Says</h2>
+    <p class="sub">Move only when you hear <b>“Simon says”</b>. If Simon doesn't say it – stay still!</p>
+    <div class="simon">
+      <div>
+        <div class="stage" id="stage">
+          <svg class="ring" viewBox="0 0 84 84"><circle cx="42" cy="42" r="36" fill="none" stroke="#ead9c3" stroke-width="8"/><circle id="ringArc" cx="42" cy="42" r="36" fill="none" stroke="#f28c28" stroke-width="8" stroke-linecap="round" transform="rotate(-90 42 42)" stroke-dasharray="226" stroke-dashoffset="0"/><text id="ringTxt" x="42" y="52" text-anchor="middle"></text></svg>
+          <div class="says" id="says">Ready?</div>
+          <div class="emo" id="emo">🙋</div>
+          <div class="act" id="act">Let's play!</div>
+          <div class="hint" id="hint"></div>
+        </div>
+        <div class="spinrow"><button class="btn sf" onclick="nextSimon()">▶ Next Action</button><button class="btn ghost" onclick="revealSimon()">👀 Reveal</button></div>
+        <div class="deck" id="deck"></div>
+      </div>
+      <div class="side">
+        <div class="box"><h4>Settings</h4>
+          <label class="tog">🔊 Read aloud <input type="checkbox" id="optVoice" checked></label>
+          <label class="tog">⏱ Timer <select id="optTime"><option value="0">Off</option><option value="5">5 s</option><option value="8" selected>8 s</option><option value="12">12 s</option></select></label>
+          <label class="tog">🎲 “Simon says” chance <select id="optP"><option value="0.5">50%</option><option value="0.7" selected>70%</option><option value="1">Always</option></select></label>
+        </div>
+        <div class="box"><h4>How to play</h4><ol>
+          <li>Everyone stands up.</li>
+          <li>Teacher presses <b>Next Action</b>.</li>
+          <li>“Simon says …” → do the action.</li>
+          <li>No “Simon says” → do not move!</li>
+          <li>Press <b>Reveal</b> to check.</li></ol></div>
+        <div class="box"><h4>Remember</h4><p style="font-size:16px;line-height:1.5">Exercise keeps us strong and energetic. Yoga improves our posture. After a lot of play, our body needs rest and good sleep.</p></div>
+      </div>
+    </div>
+    <p class="sub" style="margin-top:12px">Tip: tap any card below to call that action yourself.</p>
+  </section>
+</main>
+<footer>PM SHRI Kendriya Vidyalaya Raebareli · Class 4 TWAU · Chapter 6 <b>Happy and Healthy Living</b></footer>
+<div class="toast" id="toast"></div>
+<canvas id="confetti"></canvas>
+
+<script>
+/* ---------- simple line icons ---------- */
+const S='stroke="#2b1a14" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"';
+const person=(x,y,s=1)=>`<circle cx="${x}" cy="${y}" r="${7*s}" fill="#2b1a14"/>`;
+const ICON={
+ cricket:`<svg viewBox="0 0 100 100"><path d="M30 82 L62 30" stroke="#8d5a2b" stroke-width="12" stroke-linecap="round"/><path d="M62 30 L72 14" ${S}/><path d="M30 82 L62 30" ${S} stroke-width="3"/><circle cx="76" cy="70" r="9" fill="#d23b2f" stroke="#2b1a14" stroke-width="3"/><path d="M70 66 Q76 70 82 66" stroke="#fff" stroke-width="2" fill="none"/></svg>`,
+ cycling:`<svg viewBox="0 0 100 100"><circle cx="26" cy="68" r="16" ${S}/><circle cx="74" cy="68" r="16" ${S}/><path d="M26 68 L42 40 L66 40 L74 68 M42 40 L50 68 L66 40 M38 32 L48 32 M66 40 L62 28 L72 28" ${S}/></svg>`,
+ skipping:`<svg viewBox="0 0 100 100">${person(50,18)}<path d="M50 26 L50 56 M50 34 L34 46 M50 34 L66 46 M50 56 L40 76 M50 56 L60 76" ${S}/><path d="M34 46 Q20 96 50 92 Q80 96 66 46" stroke="#f28c28" stroke-width="4" fill="none"/></svg>`,
+ kabaddi:`<svg viewBox="0 0 100 100">${person(28,22)}<path d="M28 30 L30 56 M30 38 L52 34 M30 38 L18 50 M30 56 L20 78 M30 56 L42 76" ${S}/>${person(74,26)}<path d="M74 34 L72 60 M72 42 L58 44 M72 42 L84 54 M72 60 L62 80 M72 60 L82 80" ${S}/><path d="M6 88 H94" stroke="#7b1e2b" stroke-width="3" stroke-dasharray="6 5"/></svg>`,
+ khokho:`<svg viewBox="0 0 100 100">${person(30,46)}<path d="M30 54 L32 70 L44 70 L44 84 M32 70 L22 84 M30 58 L42 62" ${S}/>${person(72,18)}<path d="M72 26 L68 50 M70 34 L84 42 M70 34 L58 30 M68 50 L80 64 L76 80 M68 50 L56 62" ${S}/><path d="M6 90 H94" stroke="#7b1e2b" stroke-width="3" stroke-dasharray="6 5"/></svg>`,
+ lagori:`<svg viewBox="0 0 100 100"><g fill="#fff" stroke="#2b1a14" stroke-width="3">${[0,1,2,3,4,5,6].map(i=>`<ellipse cx="40" cy="${86-i*9}" rx="${24-i*2.4}" ry="5"/>`).join('')}</g><circle cx="80" cy="30" r="9" fill="#f28c28" stroke="#2b1a14" stroke-width="3"/><path d="M66 36 L58 40 M70 44 L62 50" stroke="#2b1a14" stroke-width="2.5" stroke-linecap="round"/></svg>`,
+ football:`<svg viewBox="0 0 100 100"><circle cx="50" cy="52" r="32" ${S}/><path d="M50 38 L62 47 L58 61 L42 61 L38 47 Z" fill="#2b1a14"/><path d="M50 38 L50 20 M62 47 L80 42 M58 61 L68 78 M42 61 L32 78 M38 47 L20 42" stroke="#2b1a14" stroke-width="3"/></svg>`,
+ hopscotch:`<svg viewBox="0 0 100 100"><g ${S} stroke-width="3.5"><rect x="38" y="70" width="24" height="20"/><rect x="38" y="50" width="24" height="20"/><rect x="26" y="30" width="24" height="20"/><rect x="50" y="30" width="24" height="20"/><rect x="38" y="10" width="24" height="20"/></g><text x="50" y="85" font-size="13" text-anchor="middle" font-weight="900" fill="#7b1e2b">1</text><text x="50" y="65" font-size="13" text-anchor="middle" font-weight="900" fill="#7b1e2b">2</text><text x="38" y="45" font-size="13" text-anchor="middle" font-weight="900" fill="#7b1e2b">3</text><text x="62" y="45" font-size="13" text-anchor="middle" font-weight="900" fill="#7b1e2b">4</text><text x="50" y="25" font-size="13" text-anchor="middle" font-weight="900" fill="#7b1e2b">5</text></svg>`,
+ gilli:`<svg viewBox="0 0 100 100"><path d="M14 74 L78 46" stroke="#8d5a2b" stroke-width="9" stroke-linecap="round"/><path d="M14 74 L78 46" ${S} stroke-width="2.5"/><path d="M60 82 L84 74" stroke="#8d5a2b" stroke-width="8" stroke-linecap="round"/><path d="M58 83 L62 81 M82 75 L86 73" stroke="#2b1a14" stroke-width="3"/><path d="M8 90 H92" stroke="#7b1e2b" stroke-width="3" stroke-dasharray="6 5"/></svg>`,
+ kite:`<svg viewBox="0 0 100 100"><path d="M50 8 L80 40 L50 72 L20 40 Z" fill="#ffe2c2" stroke="#2b1a14" stroke-width="4" stroke-linejoin="round"/><path d="M50 8 L50 72 M20 40 L80 40" stroke="#2b1a14" stroke-width="2.5"/><path d="M50 72 Q40 82 52 86 Q64 90 54 98" stroke="#f28c28" stroke-width="3" fill="none"/></svg>`,
+ chess:`<svg viewBox="0 0 100 100"><path d="M36 88 H64 M38 80 H62 L58 56 H42 Z M42 56 L40 44 H60 L58 56 M44 44 L42 32 L50 22 L58 32 L56 44" ${S} stroke-width="4"/><circle cx="50" cy="16" r="5" fill="#2b1a14"/></svg>`,
+ carrom:`<svg viewBox="0 0 100 100"><rect x="12" y="12" width="76" height="76" rx="6" ${S}/><rect x="22" y="22" width="56" height="56" stroke="#2b1a14" stroke-width="2" fill="none"/>${[[18,18],[82,18],[18,82],[82,82]].map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="5" fill="#2b1a14"/>`).join('')}<circle cx="50" cy="50" r="10" stroke="#2b1a14" stroke-width="2" fill="none"/><circle cx="50" cy="50" r="4" fill="#d23b2f"/><circle cx="44" cy="58" r="3.5" fill="#2b1a14"/><circle cx="57" cy="44" r="3.5" fill="#fff" stroke="#2b1a14"/></svg>`,
+ ludo:`<svg viewBox="0 0 100 100"><rect x="14" y="14" width="72" height="72" rx="8" ${S}/><rect x="14" y="14" width="30" height="30" fill="#d23b2f" opacity=".7"/><rect x="56" y="14" width="30" height="30" fill="#138808" opacity=".7"/><rect x="14" y="56" width="30" height="30" fill="#1f78c0" opacity=".7"/><rect x="56" y="56" width="30" height="30" fill="#f2c028" opacity=".9"/><path d="M44 44 L56 44 L56 56 L44 56 Z" fill="#fff" stroke="#2b1a14" stroke-width="2"/></svg>`,
+ snakes:`<svg viewBox="0 0 100 100"><rect x="12" y="12" width="76" height="76" rx="6" ${S}/><path d="M30 80 L30 22 M44 80 L44 22 M30 34 H44 M30 50 H44 M30 66 H44" stroke="#8d5a2b" stroke-width="3.5"/><path d="M76 22 Q56 34 70 48 Q84 62 62 78" stroke="#138808" stroke-width="6" fill="none" stroke-linecap="round"/><circle cx="76" cy="22" r="4" fill="#138808"/></svg>`,
+ puzzle:`<svg viewBox="0 0 100 100"><path d="M18 18 H46 V30 A8 8 0 1 1 46 42 V54 H18 Z" fill="#ffe2c2" stroke="#2b1a14" stroke-width="4" stroke-linejoin="round"/><path d="M54 18 H82 V54 H70 A8 8 0 1 0 58 54 H54 Z" fill="#dff3d8" stroke="#2b1a14" stroke-width="4" stroke-linejoin="round"/><path d="M18 62 H82 V84 H18 Z" fill="#e3f1fb" stroke="#2b1a14" stroke-width="4" stroke-linejoin="round"/></svg>`,
+ tabletennis:`<svg viewBox="0 0 100 100"><circle cx="40" cy="40" r="22" fill="#d23b2f" stroke="#2b1a14" stroke-width="4"/><path d="M54 56 L76 80" stroke="#8d5a2b" stroke-width="10" stroke-linecap="round"/><circle cx="76" cy="26" r="7" fill="#fff" stroke="#2b1a14" stroke-width="3"/></svg>`,
+ cards:`<svg viewBox="0 0 100 100"><rect x="20" y="22" width="40" height="58" rx="6" transform="rotate(-12 40 51)" fill="#fff" stroke="#2b1a14" stroke-width="4"/><rect x="42" y="20" width="40" height="58" rx="6" transform="rotate(10 62 49)" fill="#fff" stroke="#2b1a14" stroke-width="4"/><path d="M62 38 C56 30 50 40 62 52 C74 40 68 30 62 38 Z" fill="#d23b2f"/></svg>`,
+};
+
+/* ---------- navigation ---------- */
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id));window.scrollTo(0,0);if(id!=='simonS')stopTimer();}
+function toggleFS(){if(!document.fullscreenElement)document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();else document.exitFullscreen();}
+let tt;function toast(msg,cls){const t=document.getElementById('toast');t.textContent=msg;t.className='toast on '+(cls||'');clearTimeout(tt);tt=setTimeout(()=>t.className='toast',1800);}
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+
+/* ---------- sounds ---------- */
+let AC;function beep(f,d=.15,type='sine',v=.15){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.value=f;g.gain.value=v;o.connect(g);g.connect(AC.destination);o.start();g.gain.exponentialRampToValueAtTime(.0001,AC.currentTime+d);o.stop(AC.currentTime+d);}catch(e){}}
+const good=()=>{beep(660,.12);setTimeout(()=>beep(880,.18),110);};
+const bad=()=>beep(180,.3,'square',.08);
+
+/* ---------- confetti ---------- */
+function confetti(){const c=document.getElementById('confetti'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+ const cols=['#7b1e2b','#f28c28','#138808','#1f78c0','#f2c028'];const P=Array.from({length:140},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,r:4+Math.random()*6,c:cols[Math.random()*5|0],vy:2+Math.random()*4,vx:-2+Math.random()*4,a:Math.random()*6}));
+ let n=0;(function f(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.y+=p.vy;p.x+=p.vx;p.a+=.1;x.fillStyle=p.c;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillRect(-p.r,-p.r/2,p.r*2,p.r);x.restore();});if(++n<170)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height);})();}
+
+/* =========================================================
+   GAME 1 – GAMES WHEEL
+   ========================================================= */
+const WHEEL=[
+ {k:'khokho',n:'Kho-kho',ans:'Legs',why:'In kho-kho we run fast, sit down quickly and get up again to chase – our <b>legs</b> work the most.'},
+ {k:'kabaddi',n:'Kabaddi',ans:'Whole body',why:'In kabaddi the raider runs, stretches arms to touch players and keeps saying “kabaddi” in one breath – the <b>whole body</b> (and our lungs!) works.'},
+ {k:'skipping',n:'Skipping',ans:'Legs',why:'When skipping we keep jumping over the rope – our <b>legs</b> move the most (hands only turn the rope).'},
+ {k:'cycling',n:'Cycling',ans:'Legs',why:'We push the pedals round and round with our <b>legs</b>. Hands only hold the handle.'},
+ {k:'lagori',n:'Lagori (Pitthu)',ans:'Arms',why:'In lagori we <b>throw the ball with our arms</b> to knock down the pile of stones, then run to build it again.'},
+ {k:'cricket',n:'Cricket',ans:'Arms',why:'We swing the bat and bowl the ball with our <b>arms</b>, and run between the wickets too.'},
+];
+const OPTS=['Legs','Arms','Whole body','Only eyes'];
+const SEGC=['#7b1e2b','#f28c28','#138808','#1f78c0','#a33a1a','#5a8f1a'];
+let wRot=0,turn=0,score=[0,0],spinning=false,answered=true,lastIdx=-1;
+function drawWheel(){const g=document.getElementById('wheel');const n=WHEEL.length,R=200;let s='';
+ WHEEL.forEach((w,i)=>{const a0=(i/n)*2*Math.PI-Math.PI/2-Math.PI/n,a1=a0+2*Math.PI/n;
+  const p=(a,r)=>[(Math.cos(a)*r).toFixed(1),(Math.sin(a)*r).toFixed(1)];
+  const [x0,y0]=p(a0,R),[x1,y1]=p(a1,R);
+  s+=`<path d="M0 0 L${x0} ${y0} A${R} ${R} 0 0 1 ${x1} ${y1} Z" fill="${SEGC[i]}" stroke="#fff" stroke-width="4"/>`;
+  const am=(a0+a1)/2,deg=am*180/Math.PI+90;const [cx,cy]=p(am,128);const [tx,ty]=p(am,180);
+  s+=`<g transform="translate(${cx} ${cy}) rotate(${deg})"><circle r="40" fill="#fff"/><g transform="translate(-34 -34) scale(.68)">${ICON[w.k].replace(/<\/?svg[^>]*>/g,'')}</g></g>`;
+  s+=`<text transform="translate(${tx} ${ty}) rotate(${deg})" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-weight="900" font-size="19">${w.n.replace(' (Pitthu)','')}</text>`;});
+ s+=`<circle r="${R}" fill="none" stroke="#5a1520" stroke-width="8"/>`;g.innerHTML=s;}
+function setTurn(){document.getElementById('tA').classList.toggle('turn',turn===0);document.getElementById('tB').classList.toggle('turn',turn===1);}
+function spin(){if(spinning)return;if(!answered){toast('First answer the question!','no');return;}
+ spinning=true;answered=false;document.getElementById('spinBtn').disabled=true;
+ let idx;do{idx=Math.random()*WHEEL.length|0}while(idx===lastIdx&&WHEEL.length>1);lastIdx=idx;
+ const seg=360/WHEEL.length;const jitter=(Math.random()-.5)*seg*.6;
+ const target=360-idx*seg+jitter;const cur=((wRot%360)+360)%360;wRot+=5*360+((target-cur+360)%360);
+ const wh=document.getElementById('wheel');wh.style.transform=`rotate(${wRot}deg)`;
+ let ticks=0;const ti=setInterval(()=>{beep(900-ticks*15,.03,'triangle',.05);if(++ticks>40)clearInterval(ti);},95);
+ document.getElementById('wpanel').innerHTML='<div class="idle">Spinning… 🎡</div>';
+ setTimeout(()=>{spinning=false;document.getElementById('spinBtn').disabled=false;showGame(idx);},4300);}
+function showGame(i){const w=WHEEL[i];const T=turn===0?'Team A':'Team B';
+ document.getElementById('wpanel').innerHTML=`<div class="gname">${ICON[w.k]}<span>${w.n}</span></div>
+ <div class="q">${T}: Which body part moves the most in ${w.n.replace(' (Pitthu)','')}?</div>
+ <div class="opts">${shuffle(OPTS).map(o=>`<button class="opt" onclick="pick(this,'${o}',${i})">${o}</button>`).join('')}</div>
+ <div class="explain" id="why"></div>`;good();}
+function pick(btn,o,i){if(answered)return;answered=true;const w=WHEEL[i];
+ document.querySelectorAll('.opt').forEach(b=>{if(b.textContent===w.ans)b.classList.add('ok');});
+ const ok=o===w.ans||(w.ans!=='Whole body'&&o==='Whole body'&&false);
+ if(ok){score[turn]++;good();toast('Correct! +1 point','ok');if(score[turn]%3===0)confetti();}else{btn.classList.add('no');bad();toast('Not quite!','no');}
+ document.getElementById('sA').textContent=score[0];document.getElementById('sB').textContent=score[1];
+ const ex=document.getElementById('why');ex.innerHTML=(ok?'✅ ':'💡 ')+w.why+'<br><br>Now act it out – everybody pretend to play '+w.n.replace(' (Pitthu)','')+' for 10 seconds!';ex.classList.add('on');
+ turn=1-turn;setTurn();}
+function resetWheel(){score=[0,0];turn=0;answered=true;setTurn();document.getElementById('sA').textContent=0;document.getElementById('sB').textContent=0;
+ document.getElementById('wpanel').innerHTML='<div class="idle">Press <b>Spin the Wheel</b> to start!<br><br>Team A goes first.</div>';}
+
+/* =========================================================
+   GAME 2 – INDOOR / OUTDOOR SORT
+   ========================================================= */
+const SORT=[
+ {k:'chess',n:'Chess',t:'in'},{k:'carrom',n:'Carrom',t:'in'},{k:'ludo',n:'Ludo',t:'in'},{k:'snakes',n:'Snakes & Ladders',t:'in'},
+ {k:'puzzle',n:'Jigsaw Puzzle',t:'in'},{k:'tabletennis',n:'Table Tennis',t:'in'},{k:'cards',n:'Card Games',t:'in'},
+ {k:'khokho',n:'Kho-kho',t:'out'},{k:'kabaddi',n:'Kabaddi',t:'out'},{k:'cricket',n:'Cricket',t:'out'},{k:'football',n:'Football',t:'out'},
+ {k:'lagori',n:'Lagori (Pitthu)',t:'out'},{k:'hopscotch',n:'Hopscotch (Stapu)',t:'out'},{k:'gilli',n:'Gilli-danda',t:'out'},{k:'cycling',n:'Cycling',t:'out'},{k:'kite',n:'Kite Flying',t:'out'},
+];
+let placed=0,wrong=0;
+function newSort(){placed=0;wrong=0;document.querySelectorAll('.binitems').forEach(b=>b.innerHTML='');
+ const tray=document.getElementById('tray');tray.innerHTML='';
+ shuffle(SORT).forEach(g=>{const d=document.createElement('div');d.className='gtile';d.dataset.t=g.t;d.innerHTML=ICON[g.k]+g.n;d.addEventListener('pointerdown',startDrag);tray.appendChild(d);});
+ updSort();}
+function updSort(){document.getElementById('sPlaced').textContent=placed;document.getElementById('sTotal').textContent=SORT.length;document.getElementById('sWrong').textContent=wrong;}
+let drag=null,ox=0,oy=0,ghost=null;
+function startDrag(e){const el=e.currentTarget;if(el.classList.contains('placed'))return;e.preventDefault();
+ const r=el.getBoundingClientRect();ox=e.clientX-r.left;oy=e.clientY-r.top;drag=el;
+ ghost=el.cloneNode(true);ghost.classList.add('drag');ghost.style.width=r.width+'px';document.body.appendChild(ghost);moveGhost(e);el.style.opacity='.3';
+ window.addEventListener('pointermove',onMove);window.addEventListener('pointerup',onUp,{once:true});}
+function moveGhost(e){ghost.style.left=(e.clientX-ox)+'px';ghost.style.top=(e.clientY-oy)+'px';
+ document.querySelectorAll('.bin').forEach(b=>{const r=b.getBoundingClientRect();b.classList.toggle('hot',e.clientX>r.left&&e.clientX<r.right&&e.clientY>r.top&&e.clientY<r.bottom);});}
+function onMove(e){if(drag)moveGhost(e);}
+function onUp(e){window.removeEventListener('pointermove',onMove);if(!drag)return;
+ let bin=null;document.querySelectorAll('.bin').forEach(b=>{const r=b.getBoundingClientRect();if(e.clientX>r.left&&e.clientX<r.right&&e.clientY>r.top&&e.clientY<r.bottom)bin=b;b.classList.remove('hot');});
+ ghost.remove();ghost=null;const el=drag;drag=null;el.style.opacity='';
+ if(!bin)return;
+ const name=el.textContent.trim();
+ if(bin.dataset.k===el.dataset.t){el.classList.add('placed');bin.querySelector('.binitems').appendChild(el);placed++;good();toast(`Yes! ${name} is an ${el.dataset.t==='in'?'indoor':'outdoor'} game.`,'ok');
+  if(placed===SORT.length){setTimeout(()=>{confetti();toast(`Well done! All sorted with ${wrong} mistake${wrong===1?'':'s'}.`,'ok');},400);}}
+ else{wrong++;bad();el.classList.add('shake');setTimeout(()=>el.classList.remove('shake'),450);toast(`Think again! Where do we play ${name}?`,'no');}
+ updSort();}
+
+/* =========================================================
+   GAME 3 – SIMON SAYS
+   ========================================================= */
+const ACTIONS=[
+ {e:'🏃',a:'Run on the spot'},{e:'🦘',a:'Jump up high'},{e:'🙆',a:'Stretch up high'},{e:'🙇',a:'Bend down'},
+ {e:'👏',a:'Clap your hands'},{e:'🦶',a:'Touch your toes'},{e:'🦩',a:'Hop on one leg'},{e:'🌳',a:'Stand like a tree'},
+ {e:'🚶',a:'March on the spot'},{e:'👋',a:'Wave your arms'},{e:'🔄',a:'Twist left and right'},{e:'🌬️',a:'Breathe in and out slowly'},
+ {e:'💪',a:'Show your muscles'},{e:'🤸',a:'Do a star jump'},{e:'🙌',a:'Raise both hands'},{e:'🪑',a:'Sit down quietly'},
+];
+let deckQ=[],cur=null,simonOn=false,timer=null,remain=0,total=0;
+function speak(t){if(!document.getElementById('optVoice').checked||!window.speechSynthesis)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-IN';u.rate=.9;speechSynthesis.speak(u);}catch(e){}}
+function stopTimer(){clearInterval(timer);timer=null;document.getElementById('ringTxt').textContent='';document.getElementById('ringArc').style.strokeDashoffset=0;}
+function callAction(act,forceSimon){stopTimer();cur=act;
+ const p=parseFloat(document.getElementById('optP').value);simonOn=forceSimon===undefined?Math.random()<p:forceSimon;
+ const says=document.getElementById('says');says.textContent=simonOn?'Simon says…':'';says.className='says'+(simonOn?'':' not');
+ document.getElementById('emo').textContent=act.e;document.getElementById('act').textContent=act.a+'!';
+ const h=document.getElementById('hint');h.className='hint';h.textContent='';
+ speak((simonOn?'Simon says, ':'')+act.a);beep(simonOn?720:520,.12);
+ const st=document.getElementById('stage');st.classList.remove('shake');void st.offsetWidth;
+ total=+document.getElementById('optTime').value;if(total>0){remain=total;tick();timer=setInterval(()=>{remain--;tick();if(remain<=0){stopTimer();revealSimon();}},1000);}}
+function tick(){document.getElementById('ringTxt').textContent=remain;document.getElementById('ringArc').style.strokeDashoffset=226*(1-remain/total);if(remain<=3&&remain>0)beep(440,.08,'triangle',.08);}
+function nextSimon(){if(!deckQ.length)deckQ=shuffle(ACTIONS);callAction(deckQ.pop());}
+function revealSimon(){if(!cur)return;stopTimer();const h=document.getElementById('hint');
+ if(simonOn){h.className='hint on do';h.textContent='✅ Simon said it – everyone should be moving!';good();}
+ else{h.className='hint on dont';h.textContent='✋ Simon did NOT say it – anyone who moved, sit down!';bad();}}
+function buildDeck(){document.getElementById('deck').innerHTML=ACTIONS.map((a,i)=>`<div class="acard" onclick="callAction(ACTIONS[${i}])"><span class="e">${a.e}</span>${a.a}</div>`).join('');}
+
+/* ---------- init ---------- */
+document.getElementById('artWheel').innerHTML=`<svg viewBox="-210 -210 420 420" style="height:150px">${''}</svg>`;
+drawWheel();
+document.getElementById('artWheel').innerHTML=`<svg viewBox="-215 -215 430 430" style="height:150px">${document.getElementById('wheel').innerHTML}</svg>`;
+document.getElementById('artSort').innerHTML=`<div style="display:flex;gap:14px">${['chess','carrom','cricket','kite'].map(k=>`<div style="width:74px;height:74px;background:#fff;border-radius:14px;padding:6px">${ICON[k]}</div>`).join('')}</div>`;
+document.getElementById('artSimon').innerHTML='<div style="font-size:80px">🙆🦘👏</div>';
+buildDeck();setTurn();
+</script>
+</body>
+</html>
